@@ -51,10 +51,10 @@ body {
 }
 
 .item_2{
-  /* flex: 0 0 200px; */ 
+  flex: 0 0 200px; 
   /* flex-grow flex-shrink flex-basis */
 }
 
 .item_1{
-  /* align-self: center; */
+   align-self: center;
 }

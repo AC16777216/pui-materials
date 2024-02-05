@@ -10,6 +10,8 @@ body {
 
 .header {
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .profile-pic {
@@ -17,6 +19,7 @@ body {
   margin-right: 8px;
   width: 40px;
   height: 40px;
+  flex: 0 0 auto;
 }
 
 .tweet-text {
@@ -25,11 +28,13 @@ body {
 
 .name {
   background-color: lightgreen;
+  flex: 1 0 auto;
 }
 
 .footer {
   width: 100%;
   background-color: teal;
+  display: flex
 }
 
 .footer-element {
@@ -37,4 +42,5 @@ body {
   color: white;
   margin: 8px;
   padding: 4px;
+  flex: 1 0 auto;
 }
