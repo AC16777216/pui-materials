@@ -82,6 +82,40 @@ function deleteNote(notecard) {
 /**** EXERCISE 6 CODE BELOW ***************************************************/
 
 function submitNote() {
-  // Nothing here yet!
-  console.log("Submitted Note!")
+  const noteEditorTitle = document.querySelector('#note-editor-title');
+  const editorTitleText = noteEditorTitle.value;
+
+  const noteEditorBody = document.querySelector('#note-editor-body');
+  const editorBodyText = noteEditorBody.value;
+
+  const noteEditorImage = document.querySelector('#note-editor-image');
+  const editorImageURL = noteEditorImage.src;
+
+  const notecard = addNewNote(editorImageURL, editorTitleText, editorBodyText);
+  createElement(notecard);
+
+  console.log("Submitted Note!");
+
+  saveToLocalStorage();
+}
+
+function saveToLocalStorage() {
+  const notecardArray = Array.from(notecardSet);
+  const notecardArrayString = JSON.stringify(notecardArray);
+  localStorage.setItem('storedNotes', notecardArrayString);
+  //console.log(notecardArrayString);
+}
+
+function retrieveFromLocalStorage() {
+  const notecardArrayString = localStorage.getItem('storedNotes');
+  const notecardArray = JSON.parse(notecardArrayString);
+  
+  for (const noteData of notecardArray) {
+    const notecard = addNewNote(noteData.noteImageURL, noteData.noteTitle, noteData.noteBody);
+    createElement(notecard);
+  }
+}
+
+if (localStorage.getItem('storedNotes') != nul) {
+  retrieveFromLocalStorage();
 }
